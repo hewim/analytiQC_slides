@@ -100,7 +100,7 @@
     code span.vs { color: #20794d; } /* VerbatimString */
     code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </style>
-  <link rel="stylesheet" href="index_files/libs/revealjs/dist/theme/quarto-cdf2ad179c4c86fe323123d39cb8d74b.css">
+  <link rel="stylesheet" href="index_files/libs/revealjs/dist/theme/quarto-64718896ffff7c84b7983f38f9dd77ec.css">
   <link href="index_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="index_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="index_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -342,6 +342,176 @@ x_{1,2} = \frac{-b \cdot \sqrt{b^2-4ac}} {2a}
 </div>
 </div>
 </div>
+</div>
+</div>
+</section>
+<section id="einlesen-der-datei" class="slide level2">
+<h2>Einlesen der Datei</h2>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="" aria-label="1"></a><span class="co"># Einlesen der Daten</span></span>
+<span id="cb5-2"><a href="" aria-label="2"></a>dataset <span class="ot">&lt;-</span> <span class="fu">read.table</span>(</span>
+<span id="cb5-3"><a href="" aria-label="3"></a>  <span class="fu">here</span>(<span class="st">"data"</span>, <span class="st">"experiment_1.csv"</span>),        <span class="co"># Dateipfad</span></span>
+<span id="cb5-4"><a href="" aria-label="4"></a>  <span class="at">header =</span> <span class="cn">TRUE</span>,                           <span class="co"># Spaltenüberschrift</span></span>
+<span id="cb5-5"><a href="" aria-label="5"></a>  <span class="at">dec =</span> <span class="st">","</span>,                               <span class="co"># Dezimaltrenner</span></span>
+<span id="cb5-6"><a href="" aria-label="6"></a>  <span class="at">sep =</span> <span class="st">";"</span>                                <span class="co"># Spaltentrenner</span></span>
+<span id="cb5-7"><a href="" aria-label="7"></a>  )</span>
+<span id="cb5-8"><a href="" aria-label="8"></a></span>
+<span id="cb5-9"><a href="" aria-label="9"></a><span class="co"># Anzeige des/der Variableninhalte/s in der Konsole</span></span>
+<span id="cb5-10"><a href="" aria-label="10"></a>dataset</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+
+</section>
+<section id="einlesen-der-datei-output" class="slide level2 output-location-slide"><h2>Einlesen der Datei</h2><div class="cell output-location-slide">
+<div class="cell-output cell-output-stdout">
+<pre><code>   conc   ext
+1   100 1.064
+2   120 1.177
+3   140 1.303
+4   160 1.414
+5   180 1.534
+6   200 1.642
+7   220 1.744
+8   240 1.852
+9   260 1.936
+10  280 2.046</code></pre>
+</div>
+</div></section><section id="ändern-der-überschriften" class="slide level2">
+<h2>Ändern der Überschriften</h2>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="" aria-label="1"></a><span class="co"># automatisches Umbenennen der Überschriften im data.frame</span></span>
+<span id="cb7-2"><a href="" aria-label="2"></a><span class="co"># Vorsicht auf Reihenfolge der Spalten: Fehlerquelle!!!</span></span>
+<span id="cb7-3"><a href="" aria-label="3"></a><span class="fu">colnames</span>(dataset)[<span class="dv">1</span>] <span class="ot">&lt;-</span> <span class="st">"x"</span></span>
+<span id="cb7-4"><a href="" aria-label="4"></a><span class="fu">colnames</span>(dataset)[<span class="dv">2</span>] <span class="ot">&lt;-</span> <span class="st">"y"</span></span>
+<span id="cb7-5"><a href="" aria-label="5"></a></span>
+<span id="cb7-6"><a href="" aria-label="6"></a><span class="co"># Anzeige des/der Variableninhalte/s in der Konsole</span></span>
+<span id="cb7-7"><a href="" aria-label="7"></a>dataset</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+
+</section>
+<section id="ändern-der-überschriften-output" class="slide level2 output-location-slide"><h2>Ändern der Überschriften</h2><div class="cell output-location-slide">
+<div class="cell-output cell-output-stdout">
+<pre><code>     x     y
+1  100 1.064
+2  120 1.177
+3  140 1.303
+4  160 1.414
+5  180 1.534
+6  200 1.642
+7  220 1.744
+8  240 1.852
+9  260 1.936
+10 280 2.046</code></pre>
+</div>
+</div></section><section id="a.1-arithmetischer-mittelwert" class="slide level2 scrollable">
+<h2>A.1 | Arithmetischer Mittelwert</h2>
+<p>Der arithmetische Mittelwert (oft auch “arithmetisches Mittel” oder nur “Mittelwert” genannt) der Stichprobe ist der bekannteste Lageparameter und Schätzer für µ, den Mittelwert der Grundgesamtheit. <span id="eq-mittelwert"><span class="math display">\[
+\bar{x}=\frac{1}{n}\cdot\sum_{i=1}^{n} x_{i}
+\tag{1}\]</span></span></p>
+<div class="fragment">
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="" aria-label="1"></a><span class="co"># mit Funktionen sum() und nrow()</span></span>
+<span id="cb9-2"><a href="" aria-label="2"></a>xMean <span class="ot">&lt;-</span> <span class="fu">sum</span>(dataset<span class="sc">$</span>x) <span class="sc">/</span> <span class="fu">nrow</span>(dataset)</span>
+<span id="cb9-3"><a href="" aria-label="3"></a></span>
+<span id="cb9-4"><a href="" aria-label="4"></a><span class="co"># Anzeige des/der Variableninhalte/s in der Konsole</span></span>
+<span id="cb9-5"><a href="" aria-label="5"></a>xMean</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="cell fragment">
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 190</code></pre>
+</div>
+</div>
+</div>
+<div class="fragment">
+<p>Die Berechnung des Mittelwertes des Messsignals (<span class="math inline">\(\bar{y}\)</span>) könnte alternativ mit der Funktion <code>mean(experiment$y)</code> berechnet, der berechnete Wert in der Variable <code>yMean</code> abgelegt werden.</p>
+</div>
+</section>
+<section id="a.2-fehlerquadratsumme" class="slide level2">
+<h2>A.2 | Fehlerquadratsumme</h2>
+<p>Die auch als Hilfsquadrat bezeichnete Fehlerquadratsumme <span class="math inline">\(Q_{xx}\)</span> ist die Summe <span class="math inline">\(\sum\)</span> aus quadrierten Differenzen - aus den Differenzen jedes Einzewertes <span class="math inline">\(x_i\)</span> und des Mittelwerts <span class="math inline">\(\bar{x}\)</span>.</p>
+<div class="fragment">
+<p><span id="eq-fehlerquadratsumme"><span class="math display">\[
+    Q_{xx}=\sum_{i=1}^{n}\left( x_{i}-\bar{x} \right)^2
+\tag{2}\]</span></span></p>
+</div>
+<div class="fragment">
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="" aria-label="1"></a><span class="co"># Fehlerquadratsumme</span></span>
+<span id="cb11-2"><a href="" aria-label="2"></a>Qxx <span class="ot">&lt;-</span> <span class="fu">sum</span>((dataset<span class="sc">$</span>x <span class="sc">-</span> xMean) <span class="sc">^</span> <span class="dv">2</span>)</span>
+<span id="cb11-3"><a href="" aria-label="3"></a><span class="co"># Anzeige des/der Variableninhalte/s in der Konsole</span></span>
+<span id="cb11-4"><a href="" aria-label="4"></a>Qxx</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="cell fragment">
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 33000</code></pre>
+</div>
+</div>
+</div>
+<div class="fragment">
+<div class="callout callout-caution callout-style-simple">
+<div class="callout-body">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-content">
+<p>Wie wird nun die Fehlerquadratsumme <span class="math inline">\(Q_{yy}\)</span> berechnet?</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="a.3-fehlerproduktsumme" class="slide level2">
+<h2>A.3 | Fehlerproduktsumme</h2>
+<p>Die Fehlerproduktsumme <span class="math inline">\(Q_{xy}\)</span> ist die Summe <span class="math inline">\(\sum\)</span> der Produkte der Differenzen aus Einzelwerten und Mittelwert in x-Richtung <span class="math inline">\((x_i-\bar{x})\)</span>, sowie der Differenzen in y-Richtung <span class="math inline">\((y_i-\bar{y})\)</span>.</p>
+<p><span id="eq-fehlerproduktsumme"><span class="math display">\[
+Q_{xy}= \sum_{i=1}^{n}(x_i-\bar{x}) \cdot (y_i-\bar{y})
+\tag{3}\]</span></span></p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="" aria-label="1"></a><span class="co"># Produktsumme</span></span>
+<span id="cb13-2"><a href="" aria-label="2"></a>Qxy <span class="ot">&lt;-</span> <span class="fu">sum</span>((dataset<span class="sc">$</span>x <span class="sc">-</span> xMean) <span class="sc">*</span> (dataset<span class="sc">$</span>y <span class="sc">-</span> yMean))</span>
+<span id="cb13-3"><a href="" aria-label="3"></a><span class="co"># Anzeige des/der Variableninhalte/s in der Konsole</span></span>
+<span id="cb13-4"><a href="" aria-label="4"></a>Qxy</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="cell fragment">
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 179.94</code></pre>
+</div>
+</div>
+</section>
+<section id="a.4-steigung-der-kalibrierfunktion" class="slide level2">
+<h2>A.4 | Steigung der Kalibrierfunktion</h2>
+<p>Die Herleitung der Gleichung zur Berechnung der Steigung <span class="math inline">\(b\)</span> tut für die Berechnung nichts zur Sache, kann aber im Anhang nachgelesen werden. Die zweite, umgestellte Formel eignet sich besser für die Berechnung mit dem Taschenrechner. Sind Fehlerquadratsumme (siehe <a href="#/eq-fehlerquadratsumme" class="quarto-xref">Gleichung&nbsp;2</a>) und Fehlerproduktsumme (<span class="math inline">\(Q_{xy}\)</span>) bereits berechnet, kann mit Hilfe dieser die Steigung einfach ermittel werden.</p>
+<p><span id="eq-slope"><span class="math display">\[
+b=\frac{\sum_{i=1}^{n} \left ( x_i-\bar{x} \right )\cdot \left (  y_i-\bar{y}  \right )}{\sum_{i=1}^{n} \left (x_{i}-\bar{x} \right )^2} =  \frac{Q_{xy}}{Q_{xx}}
+\tag{4}\]</span></span></p>
+<div class="fragment">
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="" aria-label="1"></a><span class="co"># Steigung der Kalibrierfunktion</span></span>
+<span id="cb15-2"><a href="" aria-label="2"></a>b1 <span class="ot">&lt;-</span> Qxy <span class="sc">/</span> Qxx</span>
+<span id="cb15-3"><a href="" aria-label="3"></a><span class="co"># Anzeige des/der Variableninhalte/s in der Konsole</span></span>
+<span id="cb15-4"><a href="" aria-label="4"></a>b1</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="cell fragment">
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.005452727</code></pre>
+</div>
+</div>
+</div>
+</section>
+<section id="a.5-achsenschnittpunkt-der-kalibrierfunktion" class="slide level2">
+<h2>A.5 | Achsenschnittpunkt der Kalibrierfunktion</h2>
+<p>Durch Umstellen der Geradengleichung <span class="math inline">\(y_i= a + b \cdot x_i\)</span> nach <span class="math inline">\(a = y_i - b \cdot x_i\)</span> und Einsetzten der Mittelwerte für Konzentration und Extinktion (die Regressionsgerade läuft stets durch den Datenschwerpunkt) kann man den Schnittpunkt <span class="math inline">\(a\)</span> auf der y-Achse berechnen:</p>
+<p><span id="eq-intercept"><span class="math display">\[
+a = \bar{y} - b \cdot \bar{x}
+\tag{5}\]</span></span></p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="" aria-label="1"></a><span class="co"># Achsenabschitt der Kalibrierfunktion</span></span>
+<span id="cb17-2"><a href="" aria-label="2"></a>a1 <span class="ot">&lt;-</span>yMean <span class="sc">-</span> b1 <span class="sc">*</span> xMean </span>
+<span id="cb17-3"><a href="" aria-label="3"></a><span class="co"># Anzeige des/der Variableninhalte/s in der Konsole</span></span>
+<span id="cb17-4"><a href="" aria-label="4"></a>a1</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="cell fragment">
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.5351818</code></pre>
 </div>
 </div>
 
