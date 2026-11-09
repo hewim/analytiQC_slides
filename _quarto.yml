@@ -1,0 +1,34 @@
+project:
+  title: "analytiQC"
+  output-dir: "docs"
+
+authors:
+  - name: H. Wimmer
+    affiliation: 
+      name: "Hochschule Campus Wien"
+      url: "https://www.hcw.ac.at"
+    email: helge.wimmer@hcw.ac.at
+
+date: 09.11.2026
+date-format: "DD. MMMM YYYY"
+editor: visual
+lang: de
+
+format: 
+  revealjs:
+    chalkboard: true
+    multiplex: true
+    transition: convex
+    background-transition: fade
+    footer: "Beyond Westgard - Qualitätskontrolle in der biomedizinischen Analytik"
+    logo: images/logo.png
+    slide-number: true
+    show-slide-number: print
+    incremental: true   
+    scrollable: true
+    theme: [default, mytheme.scss]
+
+execute: 
+  echo: true
+
+
