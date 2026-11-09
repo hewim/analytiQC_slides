@@ -9,7 +9,7 @@ authors:
       url: "https://www.hcw.ac.at"
     email: helge.wimmer@hcw.ac.at
 
-date: 09.11.2026
+date: 11.09.2026
 date-format: "DD. MMMM YYYY"
 editor: visual
 lang: de
@@ -20,9 +20,10 @@ format:
     multiplex: true
     transition: convex
     background-transition: fade
-    footer: "Beyond Westgard - Qualitätskontrolle in der biomedizinischen Analytik"
+    slide-number: c/t
+    footer:  '<span id="chapter-footer"></span>'
+    include-after-body: chapter/footer.html
     logo: images/logo.png
-    slide-number: true
     show-slide-number: print
     incremental: true   
     scrollable: true

@@ -5,13 +5,16 @@ toc: true
 toc-depth: 1
 ---
 
-# Überblick
+# Qualitätskontrolle im Überblick
+
+## Interne Qualitätskontrolle (IQC)
 
 ```{r child="chapter/WestgardRules.qmd"}
 #| label: westgardrules
 
 ```
 
+## Externe Qualitätskontrolle (EQC)
 
 ```{r child="chapter/Einfuehrung_in_R.qmd"}
 #| label: einfuehrung-in-r

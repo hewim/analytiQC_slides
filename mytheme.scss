@@ -56,6 +56,16 @@ h1.title {
   max-height: unset !important;
 }
 
+.reveal .footer {
+  font-size: 0.8em;
+  color: $text-muted;
+  text-align: right;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  padding: 0.5em;
+}
+
 .slide-background-content{
   background-image: linear-gradient(white  , #ddf1fd );
   background-size: 100% 100%;

@@ -3,13 +3,17 @@ title: "Westgard Regeln"
 subtitle: "Qualitätskontrolle in der biomedizinischen Analytik"
 ---
 
-## Westgard Regeln?
+## Die Westgard Regeln (Wiederholung)
 
 . . .
 
 Für uns heißt das in erster Linie Folgendes:
 
-- 1~3s~- Regel
-- 2~2s~-Regel
+- 1~2s~-Regel: Warnregel
+- 1~3s~- Regel: Ablehnungsregel \| massiver zufälliger Ferhler
+- 2~2s~-Regel: Ablehnungsregel \| systematischer Fehler
+- R~4s~-Regel: Ablehnungsregel \| zufälliger Fehler: Trend
+- 4~1s~-Regel: Ablehnungsregel \| systematischer Fehler
+- 10~x~-Regel: Ablehnungsregel \| systematischer Fehler
 
 . . .

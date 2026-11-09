@@ -100,7 +100,7 @@
     code span.vs { color: #20794d; } /* VerbatimString */
     code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </style>
-  <link rel="stylesheet" href="index_files/libs/revealjs/dist/theme/quarto-e9681124249ee2e1717109d27bf37ccb.css">
+  <link rel="stylesheet" href="index_files/libs/revealjs/dist/theme/quarto-e5a8851bcfb29490aebad75593307bf6.css">
   <link href="index_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="index_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="index_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -220,29 +220,39 @@ H. Wimmer
     </div>
 </div>
 
-  <p class="date">11. September 2026</p>
+  <p class="date">09. November 2026</p>
 </section><section id="TOC">
 <nav role="doc-toc"> 
 <h2 id="toc-title">Inhaltsverzeichnis</h2>
 <ul>
-<li class="fragment"><a href="#/überblick" id="/toc-überblick">Überblick</a></li>
+<li class="fragment"><a href="#/qualitätskontrolle-im-überblick" id="/toc-qualitätskontrolle-im-überblick">Qualitätskontrolle im Überblick</a></li>
 </ul>
 </nav>
 </section>
 <section>
-<section id="überblick" class="title-slide slide level1 center">
-<h1>Überblick</h1>
+<section id="qualitätskontrolle-im-überblick" class="title-slide slide level1 center">
+<h1>Qualitätskontrolle im Überblick</h1>
 
 </section>
-<section id="westgard-regeln" class="slide level2">
-<h2>Westgard Regeln?</h2>
+<section id="interne-qualitätskontrolle-iqc" class="slide level2">
+<h2>Interne Qualitätskontrolle (IQC)</h2>
+</section>
+<section id="die-westgard-regeln-wiederholung" class="slide level2">
+<h2>Die Westgard Regeln (Wiederholung)</h2>
 <div class="fragment">
 <p>Für uns heißt das in erster Linie Folgendes:</p>
 <ul>
-<li class="fragment">1<sub>3s</sub>- Regel</li>
-<li class="fragment">2<sub>2s</sub>-Regel</li>
+<li class="fragment">1<sub>2s</sub>-Regel: Warnregel</li>
+<li class="fragment">1<sub>3s</sub>- Regel: Ablehnungsregel | massiver zufälliger Ferhler</li>
+<li class="fragment">2<sub>2s</sub>-Regel: Ablehnungsregel | systematischer Fehler</li>
+<li class="fragment">R<sub>4s</sub>-Regel: Ablehnungsregel | zufälliger Fehler: Trend</li>
+<li class="fragment">4<sub>1s</sub>-Regel: Ablehnungsregel | systematischer Fehler</li>
+<li class="fragment">10<sub>x</sub>-Regel: Ablehnungsregel | systematischer Fehler</li>
 </ul>
 </div>
+</section>
+<section id="externe-qualitätskontrolle-eqc" class="slide level2">
+<h2>Externe Qualitätskontrolle (EQC)</h2>
 </section>
 <section id="was-ist" class="slide level2">
 <h2>Was ist <img data-src="images/Rlogo.svg" class="icon1">?</h2>
@@ -530,7 +540,7 @@ a = \bar{y} - b \cdot \bar{x}
   <div class="quarto-auto-generated-content" style="display: none;">
 <p><img src="images/logo.png" class="slide-logo"></p>
 <div class="footer footer-default">
-<p>Beyond Westgard - Qualitätskontrolle in der biomedizinischen Analytik</p>
+<p><span id="chapter-footer"></span></p>
 </div>
 </div></div>
 
@@ -746,6 +756,67 @@ a = \bar{y} - b \cdot \bar{x}
           RevealZoom
         ]
       });
+    </script>
+    <script>
+
+    function updateFooter() {
+
+      const indices = Reveal.getIndices();
+
+      const hSlides = Reveal.getHorizontalSlides();
+
+    
+
+      let chapter = "";
+
+      let section = "";
+
+    
+
+      if (hSlides[indices.h]) {
+
+        chapter =
+
+          hSlides[indices.h]
+
+            .querySelector("h1")
+
+            ?.textContent || "";
+
+      }
+
+    
+
+      const currentSlide = Reveal.getCurrentSlide();
+
+    
+
+      section =
+
+        currentSlide.querySelector("h2")?.textContent ||
+
+        currentSlide.querySelector("h3")?.textContent ||
+
+        "";
+
+    
+
+      document.getElementById("chapter-footer").innerHTML =
+
+        `<span class="footer-chapter">${chapter}</span>
+
+         <span class="footer-separator">|</span>
+
+         <span class="footer-section">${section}</span>`;
+
+    }
+
+    
+
+    Reveal.on("ready", updateFooter);
+
+    Reveal.on("slidechanged", updateFooter);
+
     </script>
     
 

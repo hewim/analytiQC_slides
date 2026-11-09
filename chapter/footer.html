@@ -1,0 +1,31 @@
+<script>
+function updateFooter() {
+  const indices = Reveal.getIndices();
+  const hSlides = Reveal.getHorizontalSlides();
+
+  let chapter = "";
+  let section = "";
+
+  if (hSlides[indices.h]) {
+    chapter =
+      hSlides[indices.h]
+        .querySelector("h1")
+        ?.textContent || "";
+  }
+
+  const currentSlide = Reveal.getCurrentSlide();
+
+  section =
+    currentSlide.querySelector("h2")?.textContent ||
+    currentSlide.querySelector("h3")?.textContent ||
+    "";
+
+  document.getElementById("chapter-footer").innerHTML =
+    `<span class="footer-chapter">${chapter}</span>
+     <span class="footer-separator">|</span>
+     <span class="footer-section">${section}</span>`;
+}
+
+Reveal.on("ready", updateFooter);
+Reveal.on("slidechanged", updateFooter);
+</script>
