@@ -7,8 +7,14 @@ toc-depth: 1
 
 # Überblick
 
+```{r child="chapter/WestgardRules.qmd"}
+#| label: westgardrules
+
+```
+
+
 ```{r child="chapter/Einfuehrung_in_R.qmd"}
-#| label: E
+#| label: einfuehrung-in-r
 
 ```
 

@@ -1,0 +1,15 @@
+---
+title: "Westgard Regeln"
+subtitle: "Qualitätskontrolle in der biomedizinischen Analytik"
+---
+
+## Westgard Regeln?
+
+. . .
+
+Für uns heißt das in erster Linie Folgendes:
+
+- 1~3s~- Regel
+- 2~2s~-Regel
+
+. . .
